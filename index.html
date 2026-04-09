@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>東北 BEAUTYCOLLECTION 2026 — キックオフ考察資料</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1a2744;
+    --navy2:  #243258;
+    --gold:   #c9a84c;
+    --gold2:  #e0be72;
+    --cream:  #f8f5ef;
+    --ink:    #1e1c19;
+    --muted:  #6b6659;
+    --border: rgba(26,39,68,0.12);
+    --red-bg:   #fdf0f0;
+    --red-txt:  #922;
+    --amb-bg:   #fdf6e8;
+    --amb-txt:  #7a4f0a;
+    --tel-bg:   #eef8f3;
+    --tel-txt:  #1a6645;
+    --blu-bg:   #edf3fb;
+    --blu-txt:  #1a4a85;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 52px;
+  }
+  .nav-brand {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+  .nav-links a {
+    display: block;
+    padding: 0 14px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold2); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 6.5rem 3rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 80%, rgba(201,168,76,0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 20%, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+    font-weight: 400;
+  }
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.02em;
+  }
+  .hero-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hero-pill {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold2);
+    font-size: 11px;
+    padding: 5px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── WRAPPER ── */
+  .wrapper {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── SECTION ── */
+  section {
+    padding: 4rem 0 2rem;
+  }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    font-weight: 400;
+  }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .section-lead {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 720px;
+  }
+
+  /* ── METRICS ── */
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 2rem;
+  }
+  .metric-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(26,39,68,0.09);
+  }
+  .metric-label {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  .metric-value {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .metric-sub {
+    font-size: 10.5px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* ── ISSUE CARDS ── */
+  .issue-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 1.5rem;
+  }
+  .issue-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.3rem;
+    transition: box-shadow 0.2s;
+  }
+  .issue-card:hover { box-shadow: 0 4px 16px rgba(26,39,68,0.07); }
+  .issue-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .issue-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .ic-red { background: var(--red-bg); }
+  .ic-amb { background: var(--amb-bg); }
+  .ic-blu { background: var(--blu-bg); }
+  .issue-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .issue-body {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .common-badge {
+    display: inline-block;
+    background: var(--red-bg);
+    color: var(--red-txt);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  /* ── TWO-COL ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  .col-label {
+    font-size: 10.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  /* ── BAR CHART ── */
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .bar-label { font-size: 12px; color: var(--muted); width: 120px; flex-shrink: 0; text-align: right; }
+  .bar-track { flex: 1; height: 8px; background: #f0ede7; border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; }
+  .bf-green { background: #2a9e74; }
+  .bf-gold  { background: var(--gold); }
+  .bar-pct  { font-size: 12px; color: var(--navy); font-weight: 500; width: 36px; text-align: right; }
+
+  /* ── BADGES ── */
+  .tag-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  .tag-g { background: var(--tel-bg); color: var(--tel-txt); }
+  .tag-b { background: var(--blu-bg); color: var(--blu-txt); }
+  .tag-a { background: var(--amb-bg); color: var(--amb-txt); }
+
+  /* ── QUOTES ── */
+  .quote-stack { display: flex; flex-direction: column; gap: 10px; }
+  .qcard {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+  }
+  .qsource {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 5px;
+  }
+  .qtext {
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  /* ── ACTION TABLE ── */
+  .action-wrap {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead th {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    padding: 13px 16px;
+    text-align: left;
+  }
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #faf8f3; }
+  tbody td {
+    font-size: 12.5px;
+    color: var(--ink);
+    padding: 13px 16px;
+    vertical-align: top;
+    line-height: 1.65;
+  }
+  .pri {
+    display: inline-block;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .pri-high  { background: var(--red-bg);  color: var(--red-txt); }
+  .pri-mid   { background: var(--amb-bg);  color: var(--amb-txt); }
+  .pri-low   { background: var(--tel-bg);  color: var(--tel-txt); }
+
+  /* ── TOP 3 ── */
+  .top3 { display: flex; flex-direction: column; gap: 12px; margin-bottom: 1.5rem; }
+  .top3-card {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.3rem;
+    transition: box-shadow 0.2s;
+  }
+  .top3-card:hover { box-shadow: 0 4px 16px rgba(26,39,68,0.07); }
+  .top3-num {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 30px;
+  }
+  .top3-title {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+  .top3-body {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── ROADMAP ── */
+  .roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; margin-bottom: 2rem; }
+  .roadmap::before {
+    content: '';
+    position: absolute;
+    top: 20px; left: 20px; right: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    z-index: 0;
+  }
+  .rm-item { position: relative; z-index: 1; padding: 0 14px 0 0; }
+  .rm-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--gold);
+    margin-bottom: 14px;
+  }
+  .rm-phase {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: var(--gold);
+    margin-bottom: 5px;
+  }
+  .rm-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .rm-body {
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ── ONGOING ── */
+  .ongoing-list {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+  }
+  .ongoing-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+  .ongoing-item {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.65;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .ongoing-item:last-child { border-bottom: none; }
+  .ongoing-dot { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    margin-top: 4rem;
+  }
+  footer span { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-title   { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-sub     { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-pills   { animation: fadeUp 0.6s 0.3s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .metric-grid  { grid-template-columns: repeat(2, 1fr); }
+    .issue-grid   { grid-template-columns: 1fr; }
+    .two-col      { grid-template-columns: 1fr; }
+    .roadmap      { grid-template-columns: 1fr 1fr; }
+    .roadmap::before { display: none; }
+    nav .nav-links { display: none; }
+    .wrapper { padding: 0 1.2rem; }
+    section { padding: 3rem 0 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">東北 BC 2026 — キックオフ資料</div>
+  <ul class="nav-links">
+    <li><a href="#results">昨年成果</a></li>
+    <li><a href="#issues">課題</a></li>
+    <li><a href="#visitor">来場者</a></li>
+    <li><a href="#maker">メーカー</a></li>
+    <li><a href="#actions">改善策</a></li>
+    <li><a href="#roadmap">ロードマップ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="padding-top:52px;">
+  <div class="hero">
+    <div class="wrapper">
+      <p class="hero-eyebrow">Kickoff Materials · 2026</p>
+      <h1 class="hero-title">東北 BEAUTYCOLLECTION 2026<br>昨年振り返りと今年への提言</h1>
+      <p class="hero-sub">来場者・出展メーカー・社員 3者アンケートの統合考察</p>
+      <div class="hero-pills">
+        <span class="hero-pill">来場者 124名</span>
+        <span class="hero-pill">出展メーカー 41社</span>
+        <span class="hero-pill">社員アンケート</span>
+        <span class="hero-pill">メーカー配置図</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 01 -->
+<section id="results">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">昨年の成果サマリー</h2>
+    </div>
+    <p class="section-lead">
+      初開催にもかかわらず、来場者・メーカー双方から高評価を獲得。「初とは感じさせない非常にスムーズなオペレーション」という声もあり、東北エリアにおけるイベント需要の高さが実証された。サービス導入意向は73%に上り、展示会がビジネス商談の場として機能したことも確認できる。
+    </p>
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-label">来場者<br>イベント満足度</div>
+        <div class="metric-value">84%</div>
+        <div class="metric-sub">「とても満足」+「満足」<br>（124名回答）</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">来場者<br>商品魅力度</div>
+        <div class="metric-value">85%</div>
+        <div class="metric-sub">「とても/魅力的だった」<br>（127名回答）</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">メーカー<br>総合満足度</div>
+        <div class="metric-value">88%</div>
+        <div class="metric-sub">5点+4点（41社中）<br>最高・準最高評価計</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">メーカー<br>次回出展意向</div>
+        <div class="metric-value">83%</div>
+        <div class="metric-sub">「はい」と回答（34社）<br>条件次第含め93%</div>
+      </div>
+    </div>
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-label">来場者<br>サロン活用度</div>
+        <div class="metric-value">82%</div>
+        <div class="metric-sub">「役立つ情報が多かった」<br>（128名回答）</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">来場者<br>サービス導入意向</div>
+        <div class="metric-value">73%</div>
+        <div class="metric-sub">「ぜひ/導入したい」計<br>（134名回答）</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">メーカー<br>認知拡大効果</div>
+        <div class="metric-value">73%</div>
+        <div class="metric-sub">5点+4点評価<br>（41社中）</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">出展<br>メーカー数</div>
+        <div class="metric-value">41<span style="font-size:22px;">社</span></div>
+        <div class="metric-sub">A〜Gエリアに配置<br>初年度としては十分な規模</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 02 -->
+<section id="issues">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">3者アンケートで共通して挙がった課題</h2>
+    </div>
+    <p class="section-lead">
+      来場者・出展メーカー・社員の3者から寄せられたフィードバックを重ね合わせると、共通する構造的課題が浮き彫りになった。特に複数の視点から同時に指摘されている項目は、優先的に解決すべき重要課題として位置づける。
+    </p>
+    <div class="issue-grid">
+
+      <div class="issue-card">
+        <div class="common-badge">3者共通の指摘</div>
+        <div class="issue-head">
+          <div class="issue-icon ic-red">🔴</div>
+          <div class="issue-title">来場者の動線・会場案内</div>
+        </div>
+        <div class="issue-body">
+          「会場案内が分かりにくい」は来場者・メーカー・社員の全3者から共通して指摘された最重要課題。タカラとの同時開催で区分が曖昧になり、誤って移動する来場者も発生。入り口付近のブースへの立ち寄りも少ない傾向があった。
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="common-badge">3者共通の指摘</div>
+        <div class="issue-head">
+          <div class="issue-icon ic-red">🔴</div>
+          <div class="issue-title">受付・アンケート・抽選フローの連鎖的混雑</div>
+        </div>
+        <div class="issue-body">
+          受付での想定外の混雑、アンケート入力のスムーズでなさ、抽選会場での滞留が連鎖的に発生。「入力フォームが使いにくい」は来場者・メーカー双方から指摘。QRコードの存在認知が会場内で不十分だった。
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="common-badge">3者共通の指摘</div>
+        <div class="issue-head">
+          <div class="issue-icon ic-red">🔴</div>
+          <div class="issue-title">営業によるアテンド不足</div>
+        </div>
+        <div class="issue-body">
+          「来場者だけで回る光景が目立った」と社員アンケートで多数指摘。担当営業がサロンをブースへ誘導することがBCの本来目的であるとの気づきが共有された。メーカー側からも「営業によるブース誘導が大変ありがたかった」という声がある一方、全体的には不足していた。
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-head">
+          <div class="issue-icon ic-red">🔴</div>
+          <div class="issue-title">アナウンス音量・会話環境</div>
+        </div>
+        <div class="issue-body">
+          メーカーアナウンスの音量が大きすぎて、ブースでの商談・会話が困難。メーカーアンケートでも「マイク音量が大きすぎ、会話がしづらかった」と明記。来場者の集中が難しく、商談の質に影響した可能性がある。
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-head">
+          <div class="issue-icon ic-amb">🟡</div>
+          <div class="issue-title">ブース配置の偏りと関連性の欠如</div>
+        </div>
+        <div class="issue-body">
+          関連性の高いメーカー（例：イムダイン×ウトワ）が離れて配置されており、来場者の回遊効率が低下。混雑の偏りも発生し、特定ブースに集中・他は閑散という状況。入り口付近のブースへの立ち寄りが少ない傾向も確認された。
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-head">
+          <div class="issue-icon ic-amb">🟡</div>
+          <div class="issue-title">メーカーの接客姿勢のばらつき</div>
+        </div>
+        <div class="issue-body">
+          積極的に声かけするメーカーと座っているだけのメーカーの差が大きく、来場者・社員双方から「モチベーションのばらつき」が指摘された。自社ブースを離れて他ブースを体験するケースも見られた。事前の役割認識合わせが不十分だった可能性がある。
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-head">
+          <div class="issue-icon ic-amb">🟡</div>
+          <div class="issue-title">運営体制の特定人物への集中</div>
+        </div>
+        <div class="issue-body">
+          特定の個人（永瀬氏・岩川氏）に業務が集中し、負担が偏在。ポジションごとのリーダー配置や権限委譲が不十分で、指示系統が一本化しすぎていた。神奈川メンバーの協力があったことで初年度はカバーされたが、来年以降は自力で対応する必要がある。
+        </div>
+      </div>
+
+      <div class="issue-card">
+        <div class="issue-head">
+          <div class="issue-icon ic-blu">🔵</div>
+          <div class="issue-title">来場者識別の仕組みが未整備</div>
+        </div>
+        <div class="issue-body">
+          来場者（サロン）・出展メーカー担当者・ガモウ社員の識別が困難で、メーカーが声がけしにくい状況だった。ガモウ社員の名札に支店名・氏名が記載されていないことも、よりスムーズなコミュニケーションを求める声として複数社から挙がった。
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 03 -->
+<section id="visitor">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">来場者アンケート詳細</h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label">定量スコア</div>
+        <div class="bar-row">
+          <span class="bar-label">イベント満足度</span>
+          <div class="bar-track"><div class="bar-fill bf-green" style="width:84%"></div></div>
+          <span class="bar-pct">84%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">商品魅力度</span>
+          <div class="bar-track"><div class="bar-fill bf-green" style="width:85%"></div></div>
+          <span class="bar-pct">85%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">サロン活用度</span>
+          <div class="bar-track"><div class="bar-fill bf-green" style="width:82%"></div></div>
+          <span class="bar-pct">82%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">サービス導入意向</span>
+          <div class="bar-track"><div class="bar-fill bf-gold" style="width:73%"></div></div>
+          <span class="bar-pct">73%</span>
+        </div>
+
+        <div class="col-label" style="margin-top:1.5rem;">印象に残ったメーカー（言及多数）</div>
+        <div class="tag-group">
+          <span class="tag tag-g">KINUJO（絹女）</span>
+          <span class="tag tag-g">LOA（ロア）</span>
+          <span class="tag tag-g">ミルボン</span>
+          <span class="tag tag-g">Sins（シンズ）</span>
+          <span class="tag tag-b">アルピジョン</span>
+          <span class="tag tag-b">V3</span>
+          <span class="tag tag-b">自由が丘クリニック</span>
+          <span class="tag tag-a">モロッカンオイル</span>
+          <span class="tag tag-a">ナルトシザー</span>
+          <span class="tag tag-a">タカラベルモント</span>
+          <span class="tag tag-a">マイハニー</span>
+          <span class="tag tag-a">ドクターソワ</span>
+        </div>
+
+        <div class="col-label" style="margin-top:1.5rem;">改善要望（定性）</div>
+        <div style="font-size:12.5px; color:var(--muted); line-height:1.8;">
+          ・入力フォームが使いにくい<br>
+          ・体験スペースをもっと広く<br>
+          ・会場案内をわかりやすく<br>
+          ・青森・盛岡でも開催を希望<br>
+          ・来年も開催してほしい（継続要望多数）
+        </div>
+      </div>
+      <div>
+        <div class="col-label">来場者の声</div>
+        <div class="quote-stack">
+          <div class="qcard">
+            <div class="qsource" style="color:var(--tel-txt);">好評 — 商品体験</div>
+            <div class="qtext">「普段使わない商材に触れ、メーカー担当者に質問したり体験できたことが非常に良かった」</div>
+          </div>
+          <div class="qcard">
+            <div class="qsource" style="color:var(--tel-txt);">好評 — イベント規模</div>
+            <div class="qtext">「えーすごい！」と驚きの声。大規模な展示会が少ない地域での開催意義を感じた。</div>
+          </div>
+          <div class="qcard">
+            <div class="qsource" style="color:var(--tel-txt);">好評 — 継続希望</div>
+            <div class="qtext">「東北でもっとやってほしいです」「来年も楽しみにしております」「また開催してほしいです！」</div>
+          </div>
+          <div class="qcard">
+            <div class="qsource" style="color:var(--tel-txt);">好評 — 学びの場</div>
+            <div class="qtext">「美容業界の素晴らしさを改めて感じました！学生の業界研究に役立たせます」</div>
+          </div>
+          <div class="qcard">
+            <div class="qsource" style="color:var(--red-txt);">改善要望 — 案内</div>
+            <div class="qtext">「もう少し会場案内が分かりやすいと助かる」「入力フォームが使いにくい」</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 04 -->
+<section id="maker">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">出展メーカーアンケート詳細</h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label">定量スコア（41社）</div>
+        <div class="bar-row">
+          <span class="bar-label">総合満足度</span>
+          <div class="bar-track"><div class="bar-fill bf-green" style="width:88%"></div></div>
+          <span class="bar-pct">88%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">認知拡大効果</span>
+          <div class="bar-track"><div class="bar-fill bf-green" style="width:73%"></div></div>
+          <span class="bar-pct">73%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">コスト納得感</span>
+          <div class="bar-track"><div class="bar-fill bf-gold" style="width:68%"></div></div>
+          <span class="bar-pct">68%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">会場立地・広さ</span>
+          <div class="bar-track"><div class="bar-fill bf-gold" style="width:66%"></div></div>
+          <span class="bar-pct">66%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">スタッフ対応</span>
+          <div class="bar-track"><div class="bar-fill bf-gold" style="width:61%"></div></div>
+          <span class="bar-pct">61%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">次回出展意向</span>
+          <div class="bar-track"><div class="bar-fill bf-green" style="width:83%"></div></div>
+          <span class="bar-pct">83%</span>
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin-top:6px;line-height:1.6;">
+          ※会場・スタッフ・コストは最高評価（1点）の割合<br>
+          ※他項目は肯定回答の合計（5段階中4〜5点）
+        </div>
+
+        <div class="col-label" style="margin-top:1.5rem;">主な改善要望（定性）</div>
+        <div style="font-size:12.5px; color:var(--muted); line-height:1.8;">
+          ・来場者にネームホルダー（サロン名入り）を配布<br>
+          ・ガモウ社員名札に支店名・氏名を記載<br>
+          ・スタンプラリー等で全ブース回遊を促進<br>
+          ・当日までの提出物・フローをまとめて提示<br>
+          ・ヒアリングシートの簡素化<br>
+          ・注文書の複写化・書式統一
+        </div>
+      </div>
+      <div>
+        <div class="col-label">メーカーの声</div>
+        <div class="quote-stack">
+          <div class="qcard">
+            <div class="qsource" style="color:var(--tel-txt);">好評 — 運営</div>
+            <div class="qtext">「初開催とのことでしたが、初とは感じさせない非常にスムーズなオペレーションでした」</div>
+          </div>
+          <div class="qcard">
+            <div class="qsource" style="color:var(--tel-txt);">好評 — 営業連携</div>
+            <div class="qtext">「ガモウセールス様がお客様をブースに誘導していただくのが大変ありがたかったです」</div>
+          </div>
+          <div class="qcard">
+            <div class="qsource" style="color:var(--tel-txt);">好評 — 交流機会</div>
+            <div class="qtext">「東北最大のイベントでサロン様と直接コミュニケーションがとれて良かった」</div>
+          </div>
+          <div class="qcard">
+            <div class="qsource" style="color:var(--red-txt);">改善要望 — 動線</div>
+            <div class="qtext">「ご来場いただいた方の動線が少し分かりにくかった印象です」（NAKAGAWA）</div>
+          </div>
+          <div class="qcard">
+            <div class="qsource" style="color:var(--red-txt);">改善要望 — 会場規模</div>
+            <div class="qtext">「もうワンサイズ小さいと全ブースを見てもらいやすかもと思いました」（香栄化学）</div>
+          </div>
+          <div class="qcard">
+            <div class="qsource" style="color:var(--amb-txt);">期待 — 次回</div>
+            <div class="qtext">「展示会きっかけで商品導入につながるサロンがどれだけあったか確認していきたい」</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 05 -->
+<section id="actions">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">2026年に向けた改善アクション一覧</h2>
+    </div>
+    <p class="section-lead">
+      3者アンケートの定量・定性評価をもとに、優先度を「最高・高・中」の3段階で整理した。<br>
+      「最高」に分類されるものは、来場者体験とメーカー満足度の双方に直結するため、早期に設計着手することを推奨する。
+    </p>
+    <div class="action-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:18%">テーマ</th>
+            <th style="width:8%">優先度</th>
+            <th style="width:46%">具体的アクション</th>
+            <th style="width:28%">根拠（アンケート）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>来場者の動線・会場案内</strong></td>
+            <td><span class="pri pri-high">最高</span></td>
+            <td>スタンプラリー導入で全ブース巡回を促進。ゾーン別カラーコーディング。タカラとのエリア明確分離。入り口付近ブースへの来場者誘導強化。</td>
+            <td>来場者・メーカー・社員の全3者が共通指摘</td>
+          </tr>
+          <tr>
+            <td><strong>受付・チェックインフロー</strong></td>
+            <td><span class="pri pri-high">最高</span></td>
+            <td>事前受付の導入＋QRチェックインのみに簡素化。抽選券を入口で一括配布。アンケートと抽選フローを完全分離。アンケートはメーカー入力ページを削減。</td>
+            <td>来場者・メーカー・社員全員が指摘</td>
+          </tr>
+          <tr>
+            <td><strong>担当営業によるアテンド体制</strong></td>
+            <td><span class="pri pri-high">最高</span></td>
+            <td>集客した担当営業が自サロンをアテンドする仕組みを制度化。チームローテーション表を事前作成。当日前に全ブース内容を把握する時間を確保。</td>
+            <td>社員アンケートで「BC本来の目的」と言及。メーカーも感謝の声。</td>
+          </tr>
+          <tr>
+            <td><strong>来場者識別の整備</strong></td>
+            <td><span class="pri pri-mid">高</span></td>
+            <td>来場者にサロン名入りネームホルダー（首掛けタイプ）を配布。ガモウ社員は支店名・氏名入り名札に統一。運営スタッフはビブス等で識別を明確化。</td>
+            <td>メーカーアンケートで複数社が要望</td>
+          </tr>
+          <tr>
+            <td><strong>アナウンス環境の改善</strong></td>
+            <td><span class="pri pri-mid">高</span></td>
+            <td>メーカーアナウンスの音量を会話可能なレベルに調整。アナウンスのタイミングをゾーン分けで分散。来場者が集中してブースを体験できる時間帯を確保。</td>
+            <td>来場者・メーカー・社員から同一指摘</td>
+          </tr>
+          <tr>
+            <td><strong>ブース配置の最適化</strong></td>
+            <td><span class="pri pri-mid">高</span></td>
+            <td>関連性の高いメーカーを隣接配置（スキンケア系・機器系・ヘアケア系でゾーン化）。人気メーカーを会場奥に配置し来場者を奥まで誘導。配置図をメーカー事前共有。</td>
+            <td>社員・メーカーアンケートで複数指摘</td>
+          </tr>
+          <tr>
+            <td><strong>メーカーの接客品質向上</strong></td>
+            <td><span class="pri pri-mid">高</span></td>
+            <td>事前説明会でブース運営姿勢・接客基準を共有。タイムセール・プチセミナー等の実施を推奨。当日限定サンプル・キャンペーンの準備を義務付け。</td>
+            <td>来場者・社員がモチベーションのばらつきを指摘</td>
+          </tr>
+          <tr>
+            <td><strong>運営体制の分散化</strong></td>
+            <td><span class="pri pri-mid">高</span></td>
+            <td>ポジションごとにリーダーを配置し権限委譲。セクション別問題共有の場を設ける。神奈川メンバー不在を想定した体制を早期に設計。セミナー後の対応人員を増員。</td>
+            <td>社員アンケートで特定人物への集中を多数指摘</td>
+          </tr>
+          <tr>
+            <td><strong>エンターテイメント性の強化</strong></td>
+            <td><span class="pri pri-low">中</span></td>
+            <td>飲食ブース・フォトブースの設置。ヘアショーなどライブコンテンツの充実。体験会・当日枠の増設。タカラとの同時開催はエリア分離を徹底した上で継続。</td>
+            <td>来場者・社員アンケートで要望。「ハシゴできるのが東北の特権」との声も。</td>
+          </tr>
+          <tr>
+            <td><strong>メーカー情報連携の強化</strong></td>
+            <td><span class="pri pri-low">中</span></td>
+            <td>出展内容をセールスと事前共有。注文用紙を複写式に統一。当日までの提出物・フローを一覧化して事前提示。メーカー名表記の正確性確認（ロゴ使用含む）。</td>
+            <td>メーカー・社員アンケートで確認の手間を指摘</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 06 -->
+<section id="roadmap">
+  <div class="wrapper">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">2026年開催ロードマップ（案）</h2>
+    </div>
+
+    <div class="col-label" style="margin-bottom:1.5rem;">準備フェーズ</div>
+    <div class="roadmap" style="margin-bottom:3rem;">
+      <div class="rm-item">
+        <div class="rm-dot"></div>
+        <div class="rm-phase">今すぐ〜1ヶ月</div>
+        <div class="rm-title">体制設計・フロー改定</div>
+        <div class="rm-body">ポジション別リーダー確定。受付→抽選フロー設計。スタンプラリー方式の検討。タカラとのエリア分離ルール策定。</div>
+      </div>
+      <div class="rm-item">
+        <div class="rm-dot"></div>
+        <div class="rm-phase">2〜3ヶ月前</div>
+        <div class="rm-title">メーカー招致・配置計画</div>
+        <div class="rm-body">昨年好評のメーカー優先招致。ゾーン別配置設計。事前説明会の日程確定。当日限定キャンペーン義務化の周知。</div>
+      </div>
+      <div class="rm-item">
+        <div class="rm-dot"></div>
+        <div class="rm-phase">1〜2ヶ月前</div>
+        <div class="rm-title">集客・事前受付準備</div>
+        <div class="rm-body">担当営業によるサロン誘致開始。QR事前受付システム構築。来場者識別用ネームホルダー準備。</div>
+      </div>
+      <div class="rm-item">
+        <div class="rm-dot"></div>
+        <div class="rm-phase">直前・当日</div>
+        <div class="rm-title">運営・フォロー体制</div>
+        <div class="rm-body">全ブース事前見学タイムの確保。担当営業によるアテンド実施。セクション別リーダーによるリアルタイム指示系統の確立。</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="col-label">今年「絶対にやること」3つ</div>
+        <div class="top3">
+          <div class="top3-card">
+            <div class="top3-num">①</div>
+            <div>
+              <div class="top3-title">スタンプラリーで全ブース巡回を促す</div>
+              <div class="top3-body">入り口付近の不人気ブース解消・動線問題の根本解決になり、メーカーにも公平な露出機会を提供できる。来場者の滞在時間も延びる効果が期待できる。</div>
+            </div>
+          </div>
+          <div class="top3-card">
+            <div class="top3-num">②</div>
+            <div>
+              <div class="top3-title">担当営業が自サロンを必ずアテンドする仕組みの制度化</div>
+              <div class="top3-body">BCの本来目的「商談の場」を実現する最重要施策。来場者満足度とメーカー成果の両方を同時に高める。事前ローテーション表の作成が鍵。</div>
+            </div>
+          </div>
+          <div class="top3-card">
+            <div class="top3-num">③</div>
+            <div>
+              <div class="top3-title">受付をQR事前登録に完全切り替え</div>
+              <div class="top3-body">入場混雑・アンケート煩雑さ・抽選滞留の3問題を同時解決。来場者体験の第一印象を劇的に改善する。当日の受付人員も削減でき、アテンドに回せる。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="col-label">継続検討事項</div>
+        <div class="ongoing-list">
+          <div class="ongoing-title">引き続き検討・決定が必要な事項</div>
+          <div class="ongoing-item">
+            <span class="ongoing-dot">◆</span>
+            <span>タカラとの同時開催（社員賛否7:4）→ エリア分離を徹底した上での継続を推奨。メリット（来場者数・規模）を活かしつつ混乱を解消。</span>
+          </div>
+          <div class="ongoing-item">
+            <span class="ongoing-dot">◆</span>
+            <span>フォトブース・ヘアショーなどエンタメ要素の追加。来場者のSNS発信を促し認知拡大にも貢献できる。</span>
+          </div>
+          <div class="ongoing-item">
+            <span class="ongoing-dot">◆</span>
+            <span>青森・盛岡エリアへの開催拡大。複数の来場者から要望あり、将来的な拡張オプションとして検討。</span>
+          </div>
+          <div class="ongoing-item">
+            <span class="ongoing-dot">◆</span>
+            <span>イベント後フォローの仕組み化。「展示→商品導入率の把握」をメーカーが強く希望。商談成果の可視化がリピート出展につながる。</span>
+          </div>
+          <div class="ongoing-item">
+            <span class="ongoing-dot">◆</span>
+            <span>来場者目標人数の設定。昨年400名に対し「倍の集客が必要」との社員意見あり。800名規模を目指す場合、集客施策の抜本的強化が必要。</span>
+          </div>
+          <div class="ongoing-item">
+            <span class="ongoing-dot">◆</span>
+            <span>メーカー別の体験会・デモのタイムテーブル事前公開。来場者が目当てのデモに合わせて来場できる仕組みは集客にも有効。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOSING INSIGHT -->
+    <div style="margin-top:3rem;padding:2rem 2.5rem;background:var(--navy);border-radius:16px;color:#fff;">
+      <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:400;">本資料の核心</div>
+      <p style="font-family:'Noto Serif JP',serif;font-size:17px;font-weight:400;line-height:1.8;color:#fff;margin-bottom:1rem;">
+        3者アンケートを重ねて見えてきた最も大きな構造的課題は、<br>
+        「<strong style="color:var(--gold2);">営業がサロンをアテンドしていない</strong>」ことである。
+      </p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.85;">
+        来場者が一人で回っている、メーカーが声がけできない、という問題の根本はここにある。<br>
+        スタンプラリー・QR受付・ゾーン配置といった改善策は、すべて「営業がサロンと一緒に動く」ための環境を整える手段として位置づけると、一本の軸で整理できる。<br>
+        今年のキックオフでこの共通認識をチーム全員で持つことが、最大の出発点となる。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>東北 BEAUTYCOLLECTION 2026</span> — キックオフ考察資料 · GAMO<br>
+  <span style="color:rgba(255,255,255,0.25);font-size:10px;margin-top:6px;display:block;">昨年来場者・出展メーカー・社員アンケートをもとに作成</span>
+</footer>
+
+</body>
+</html>
